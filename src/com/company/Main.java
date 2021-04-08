@@ -1,17 +1,17 @@
 package com.company;
 
+import com.company.doublelinkedlist.DoubleLinkedList;
 import com.company.linkedlist.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList(87);
-        linkedList.addNewNode(4);
-        linkedList.addNewNode(6);
-        linkedList.removeTail();
-
-        LinkedList linkedList1 = linkedList.copy();
-        linkedList1.addNewNode(2);
-        linkedList.addNewNode(43);
+        LinkedList ll = new LinkedList();
+        ll.addNewNode(3);
+        ll.addNewNode(5);
+        ll.addNewNode(7);
+        ll.addNewNode(9);
+        ll.addNewNode(11);
+        ll.printReverse();
     }
 }
