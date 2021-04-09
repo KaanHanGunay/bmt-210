@@ -9,13 +9,13 @@ public class DoubleLinkedList {
         this.tail = this.head;
     }
 
-    public DoubleLinkedList(Integer value) {
+    public DoubleLinkedList(int value) {
         this.head = new Node();
         this.tail = this.head;
         this.head.setData(value);
     }
 
-    public void addNewNode(Integer value) {
+    public void addNewNode(int value) {
         if (this.head.data == null) {
             this.head.setData(value);
             this.tail = head;
@@ -38,7 +38,7 @@ public class DoubleLinkedList {
         this.tail = temp;
     }
 
-    private String getListOfValues() {
+    public String getListOfValues() {
         StringBuilder listOfElements = new StringBuilder();
 
         Node temp = this.head;
@@ -175,5 +175,31 @@ public class DoubleLinkedList {
         }
 
         System.out.println(this.getListOfValues());
+    }
+
+    public void sort() {
+        Node current = this.head;
+        Node index = null;
+        int temp;
+
+        if (this.head == null || this.head.getData() == null) {
+            return;
+        } else {
+            while (current != null) {
+                index = current.getNext();
+
+                while (index != null) {
+                    if (current.getData() > index.getData()) {
+                        temp = current.getData();
+                        current.setData(index.getData());
+                        index.setData(temp);
+                    }
+
+                    index = index.getNext();
+                }
+
+                current = current.getNext();
+            }
+        }
     }
 }

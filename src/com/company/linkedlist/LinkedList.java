@@ -53,7 +53,7 @@ public class LinkedList {
         return sum;
     }
 
-    private String getListOfValues() {
+    public String getListOfValues() {
         StringBuilder listOfElements = new StringBuilder();
 
         Node temp = this.head;
