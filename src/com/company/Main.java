@@ -1,39 +1,26 @@
 package com.company;
 
-import com.company.doublelinkedlist.DoublyLinkedList;
-import com.company.linkedlist.LinkedList;
-import com.company.sorteddll.SortedDoublyLinkedList;
-import com.company.utis.Utils;
-
-import java.util.Random;
+import com.company.binaryTree.BinaryTree;
+import com.company.binaryTree.BinaryTreePrinter;
+import com.company.binaryTree.Node;
 
 public class Main {
 
     public static void main(String[] args) {
-        SortedDoublyLinkedList sdll = new SortedDoublyLinkedList();
-        Random random = new Random();
+        BinaryTree bt = new BinaryTree();
 
-        for (int i = 0; i < 10; i++) {
-            sdll.addNewNode(random.nextInt(20));
-        }
-        System.out.println(sdll.getListOfValues());
+        bt.add(4);
+        bt.add(7);
+        bt.add(2);
+        bt.add(8);
+        bt.add(6);
+        bt.add(1);
+        bt.add(10);
 
-        sdll.remove();
-        System.out.println(sdll.getListOfValues());
+        Node node = bt.getRoot().getLeft();
 
-        sdll.remove(5);
-        System.out.println(sdll.getListOfValues());
-
-        sdll.removeValue(5);
-        System.out.println(sdll.getListOfValues());
-
-        SortedDoublyLinkedList sdll2 = new SortedDoublyLinkedList();
-        for (int i = 0; i < 10; i++) {
-            sdll2.addNewNode(random.nextInt(20));
-        }
-        System.out.println(sdll2.getListOfValues());
-
-        SortedDoublyLinkedList sdll3 = sdll.getSameValues(sdll2);
-        System.out.println(sdll3.getListOfValues());
+        BinaryTreePrinter btp = new BinaryTreePrinter(node);
+        System.out.println(btp.print());
+        System.out.println("Derinlik => " + bt.maxDepth(node));
     }
 }
