@@ -1,15 +1,15 @@
 package com.company.doublelinkedlist;
 
-public class DoubleLinkedList {
+public class DoublyLinkedList {
     Node head;
     Node tail;
 
-    public DoubleLinkedList() {
+    public DoublyLinkedList() {
         this.head = new Node();
         this.tail = this.head;
     }
 
-    public DoubleLinkedList(int value) {
+    public DoublyLinkedList(int value) {
         this.head = new Node();
         this.tail = this.head;
         this.head.setData(value);
@@ -52,10 +52,8 @@ public class DoubleLinkedList {
 
     public void swapNodes(int index1, int index2) {
         Node temp = this.head;
-        Node swap1 = null;
-        Node swap2 = null;
+        Node swap1 = null, swap2 = null;
         int index = 0;
-
         while (temp != null) {
             if (index1 == index) {
                 swap1 = temp;
@@ -63,7 +61,6 @@ public class DoubleLinkedList {
             if (index2 == index) {
                 swap2 = temp;
             }
-
             index++;
             temp = temp.getNext();
         }
@@ -71,7 +68,6 @@ public class DoubleLinkedList {
         if (swap1 == null || swap2 == null) {
             return;
         }
-
         if (swap1.getPrev() != null) {
             swap1.getPrev().setNext(swap2);
         }
@@ -82,7 +78,6 @@ public class DoubleLinkedList {
         Node temp2 = swap1.getPrev();
         swap1.setPrev(swap2.getPrev());
         swap2.setPrev(temp2);
-
         Node temp3 = swap1.getNext();
         swap1.setNext(swap2.getNext());
         swap2.setNext(temp3);

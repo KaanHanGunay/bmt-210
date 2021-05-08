@@ -1,33 +1,39 @@
 package com.company;
 
-import com.company.doublelinkedlist.DoubleLinkedList;
+import com.company.doublelinkedlist.DoublyLinkedList;
 import com.company.linkedlist.LinkedList;
 import com.company.sorteddll.SortedDoublyLinkedList;
 import com.company.utis.Utils;
 
-import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
         SortedDoublyLinkedList sdll = new SortedDoublyLinkedList();
-        sdll.addNewNode(5);
-        sdll.addNewNode(15);
-        sdll.addNewNode(25);
-        sdll.addNewNode(35);
-        sdll.addNewNode(37);
-        sdll.addNewNode(45);
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            sdll.addNewNode(random.nextInt(20));
+        }
+        System.out.println(sdll.getListOfValues());
+
+        sdll.remove();
+        System.out.println(sdll.getListOfValues());
+
+        sdll.remove(5);
+        System.out.println(sdll.getListOfValues());
+
+        sdll.removeValue(5);
+        System.out.println(sdll.getListOfValues());
 
         SortedDoublyLinkedList sdll2 = new SortedDoublyLinkedList();
-        sdll2.addNewNode(5);
-        sdll2.addNewNode(66);
-        sdll2.addNewNode(25);
-        sdll2.addNewNode(21);
-        sdll2.addNewNode(2);
-        sdll2.addNewNode(45);
+        for (int i = 0; i < 10; i++) {
+            sdll2.addNewNode(random.nextInt(20));
+        }
+        System.out.println(sdll2.getListOfValues());
 
-        SortedDoublyLinkedList sameValues = sdll.getSameValues(sdll2);
-
-        System.out.println(sameValues.getListOfValues());
+        SortedDoublyLinkedList sdll3 = sdll.getSameValues(sdll2);
+        System.out.println(sdll3.getListOfValues());
     }
 }

@@ -21,8 +21,7 @@ public class LinkedList {
             this.tail.setNext(new Node(value));
             this.tail = this.tail.getNext();
         }
-        System.out.println("Toplam => " + this.sumAllNodes());
-        System.out.println("Eleman Listesi => " + this.getListOfValues());
+
     }
 
     public void removeTail() {

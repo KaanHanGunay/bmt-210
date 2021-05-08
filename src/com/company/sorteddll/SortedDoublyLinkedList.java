@@ -29,15 +29,11 @@ public class SortedDoublyLinkedList {
                 this.head = newNode;
             } else {
                 while (temp != null) {
-
                     if (temp.getData() > value) {
                         break;
                     }
-
                     temp = temp.getNext();
                 }
-
-
 
                 if (temp != null) {
                     temp.getPrev().setNext(newNode);
@@ -50,8 +46,6 @@ public class SortedDoublyLinkedList {
                     this.tail = newNode;
                 }
             }
-
-
         }
     }
 
