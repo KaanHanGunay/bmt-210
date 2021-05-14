@@ -1,22 +1,22 @@
 package com.company.binaryTree;
 
-public class BinaryTree {
+public class BinaryTree<T extends Comparable<T>> {
 
-    Node root;
+    Node<T> root;
 
-    public void add(int value) {
+    public void add(T value) {
         root = addRecursive(root, value);
     }
 
-    private Node addRecursive(Node current, int value) {
+    private Node<T> addRecursive(Node<T> current, T value) {
 
         if (current == null) {
-            return new Node(value);
+            return new Node<>(value);
         }
 
-        if (value < current.value) {
+        if (value.compareTo(current.getValue()) < 0) {
             current.left = addRecursive(current.left, value);
-        } else if (value > current.value) {
+        } else if (value.compareTo(current.getValue()) > 0) {
             current.right = addRecursive(current.right, value);
         }
 
@@ -27,7 +27,7 @@ public class BinaryTree {
         return root == null;
     }
 
-    public int maxDepth(Node node) {
+    public int maxDepth(Node<T> node) {
         if (node == null)
             return 0;
         else {
@@ -45,11 +45,11 @@ public class BinaryTree {
         return maxDepth(root);
     }
 
-    public Node getRoot() {
+    public Node<T> getRoot() {
         return root;
     }
 
-    public void setRoot(Node root) {
+    public void setRoot(Node<T> root) {
         this.root = root;
     }
 }

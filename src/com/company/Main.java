@@ -7,17 +7,17 @@ import com.company.binaryTree.Node;
 public class Main {
 
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
+        BinaryTree<Double> bt = new BinaryTree<>();
 
-        bt.add(4);
-        bt.add(7);
-        bt.add(2);
-        bt.add(8);
-        bt.add(6);
-        bt.add(1);
-        bt.add(10);
+        bt.add(4.0);
+        bt.add(7.7);
+        bt.add(2.7);
+        bt.add(8.7);
+        bt.add(6.7);
+        bt.add(1.7);
+        bt.add(10.);
 
-        Node node = bt.getRoot().getLeft();
+        Node<Double> node = bt.getRoot().getLeft();
 
         BinaryTreePrinter btp = new BinaryTreePrinter(node);
         System.out.println(btp.print());
