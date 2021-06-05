@@ -12,9 +12,9 @@ public class Algorithms {
 
         for (int i = 1; i < V; ++i) {
             for (int j = 0; j < E; ++j) {
-                int u = graf.kenar[j].kaynak;
-                int v = graf.kenar[j].hedef;
-                int agirlik = graf.kenar[j].agirlik;
+                int u = graf.kenar.get(j).kaynak;
+                int v = graf.kenar.get(j).hedef;
+                int agirlik = graf.kenar.get(j).agirlik;
                 if (uzaklik[u] != Integer.MAX_VALUE && uzaklik[u] + agirlik < uzaklik[v]) {
                     uzaklik[v] = uzaklik[u] + agirlik;
                 }
@@ -22,9 +22,9 @@ public class Algorithms {
         }
 
         for (int j = 0; j < E; ++j) {
-            int u = graf.kenar[j].kaynak;
-            int v = graf.kenar[j].hedef;
-            int agirlik = graf.kenar[j].agirlik;
+            int u = graf.kenar.get(j).kaynak;
+            int v = graf.kenar.get(j).hedef;
+            int agirlik = graf.kenar.get(j).agirlik;
             if (uzaklik[u] != Integer.MAX_VALUE && uzaklik[u] + agirlik < uzaklik[v]) {
                 System.out.println("Grafta negatif ağırlık bulunmaktadır.");
                 return;

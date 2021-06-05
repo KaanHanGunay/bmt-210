@@ -1,5 +1,8 @@
 package com.company.graphs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Graf {
 
     public class Kenar {
@@ -11,14 +14,19 @@ public class Graf {
     }
 
     public int V, E;
-    public Kenar[] kenar;
+    public List<Kenar> kenar;
 
-    public Graf(int v, int e)
-    {
+    public Graf(int v, int e) {
         V = v;
         E = e;
-        kenar = new Kenar[e];
-        for (int i = 0; i < e; ++i)
-            kenar[i] = new Kenar();
+        kenar = new ArrayList<>();
+    }
+
+    public void KenarEkle(int kaynak, int hedef, int agirlik) {
+        Kenar kenar = new Kenar();
+        kenar.kaynak = kaynak;
+        kenar.hedef = hedef;
+        kenar.agirlik = agirlik;
+        this.kenar.add(kenar);
     }
 }
